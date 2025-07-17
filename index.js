@@ -3,12 +3,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const barangRoutes = require("./routes/barangRoutes");
+const loginRoute = require("./routes/login");
 
 require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/barang", barangRoutes);
+app.use("/api/login", loginRoute);
 
 // Route utama
 app.use("/api/barang", barangRoutes);
@@ -31,3 +34,4 @@ mongoose
   })
   .catch((err) => console.error(err));
 tambah index.js
+hubungkan login route
